@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reservoir Data Predictions Using Machine Learning</title>
+    <!-- Add any additional CSS or JS links here -->
+</head>
+<body>
+    <h1>Reservoir Study</h1>
+    <!-- Form for selecting state and reservoir -->
+    <form method="POST">
+        {% csrf_token %}
+        <label for="reservoir">Select a Reservoir:</label>
+        <select name="reservoir" id="reservoir">
+            {% for reservoir in reservoirs %}
+            <option value="{{ reservoir.stn_id }}">{{ reservoir.stn_name }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Submit">
+    </form>
+
+    <div id="plot_monthly">
+        <h2>Real Time Display Plot</h2>
+        {{ real_time_plot|safe }}
+    </div>
+    <div id="model_comparison_plot">
+        <h2>Model Comparison Plot</h2>
+        {{ model_comparison_plot|safe }}
+    </div>
+</body>
+</html>
