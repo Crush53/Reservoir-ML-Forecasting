@@ -37,6 +37,13 @@ source venv/bin/activate
 ```bash
 pip install -r requirements.txt
 ```
+Before populating you database, you will need a .env file containing:
+
+DB_HOST= your_host
+DB_NAME=your_db_name
+DB_USER=your_username
+DB_PASS=your_password
+
 4- To populate your database with the necessary data, run the process_data.py script: 
 
 ```bash
